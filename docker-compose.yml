@@ -1,0 +1,13 @@
+---
+version: "3"
+services:
+  site:
+    command: jekyll serve --drafts
+    image: jekyll/jekyll:3.5
+    volumes:
+      - "$PWD:/srv/jekyll"
+    ports:
+      - 4000:4000
+    environment:
+      JEKYLL_VERSION: 3.5
+      PAGES_REPO_NWO: jappievw/jappievw.github.io

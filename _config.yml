@@ -1,0 +1,40 @@
+title: Finding Paths
+description: >
+  **Jasper van Wanrooy**,
+  technical pathfinder @ Coolblue,
+  Automation, Data, Docker, AWS, Sailing, Hiking
+
+copyright: "Jasper van Wanrooy"
+baseurl:
+url: https://findingpaths.io
+
+sass:
+  sass_dir: assets/sass
+
+disqus_shortname:
+
+contact:
+  email: "jasper@vanwanrooy.net"
+  facebook:
+  twitter: "jappievw"
+  linkedin: "jaspervanwanrooy"
+  github:  "jappievw"
+
+feed_icon: rss
+
+permalink: /:title
+paginate_path: "/page/:num/"
+paginate: 5
+
+gems:
+  - jekyll-paginate
+exclude:
+  - docker-compose.yml
+  - CODEOWNERS
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

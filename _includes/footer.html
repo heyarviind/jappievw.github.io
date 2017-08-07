@@ -1,0 +1,31 @@
+<footer id="footer">
+    <ul class="icons">
+        {% if site.contact.facebook %}
+        <li><a href="https://www.facebook.com/{{ site.contact.facebook }}" class="icon fa-facebook"><span
+                class="label">Facebook</span></a></li>
+        {% endif %}
+        {% if site.contact.twitter %}
+        <li><a href="https://twitter.com/{{ site.contact.twitter }}" class="icon fa-twitter"><span class="label">Twitter</span></a>
+        </li>
+        {% endif %}
+        {% if site.contact.linkedin %}
+        <li><a href="https://linkedin.com/in/{{ site.contact.linkedin }}" class="icon fa-linkedin"><span class="label">Linkedin</span></a>
+        </li>
+        {% endif %}
+        {% if site.contact.github %}
+        <li><a href="https://github.com/{{ site.contact.github }}" class="icon fa-github"><span
+                class="label">Github</span></a></li>
+        {% endif %}
+        {% if site.contact.email %}
+        <li><a href="mailto:{{ site.contact.email }}" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+        {% endif %}
+        {% if site.feed_icon %}
+        <li><a href="{{ "rss.xml" | relative_url }}" class="icon fa-rss"><span class="label">Feed</span></a>
+        </li>
+        {% endif %}
+    </ul>
+    <ul class="copyright">
+        <li>&copy; {{ site.copyright }}</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    </ul>
+</footer>

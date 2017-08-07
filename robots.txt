@@ -1,0 +1,8 @@
+---
+sitemap:
+  exclude: true
+---
+# robotstxt.org/
+User-Agent: *
+Disallow:
+Sitemap: {{ "/sitemap.xml" | absolute_url }}
