@@ -8,9 +8,6 @@ copyright: "Jasper van Wanrooy"
 baseurl:
 url: https://findingpaths.io
 
-sass:
-  sass_dir: assets/sass
-
 disqus_shortname:
 
 contact:
