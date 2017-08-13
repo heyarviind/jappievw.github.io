@@ -10,4 +10,5 @@ services:
       - 4000:4000
     environment:
       JEKYLL_VERSION: 3.5
+      JEKYLL_ENV: development
       PAGES_REPO_NWO: jappievw/jappievw.github.io

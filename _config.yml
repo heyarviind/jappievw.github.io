@@ -10,6 +10,9 @@ url: https://findingpaths.io
 
 disqus_shortname:
 
+analytics:
+  google_analytics_code: "UA-104466527-1"
+
 contact:
   email: "jasper@vanwanrooy.net"
   facebook:
