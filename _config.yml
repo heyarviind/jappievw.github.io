@@ -8,7 +8,7 @@ copyright: "Jasper van Wanrooy"
 baseurl:
 url: https://findingpaths.io
 
-disqus_shortname:
+disqus_shortname: "finding-paths"
 
 analytics:
   google_analytics_code: "UA-104466527-1"
