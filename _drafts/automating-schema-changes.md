@@ -4,31 +4,49 @@ title: No excuse to manually apply schema changes
 excerpt: The world around us has an increased focus for privacy and security. Still, there are many databases of which developers or DBA's make changes to its schema manually. 4 reasons the time is now to automate those changes.
 ---
 
-This is my first post ever, so bear with me. I really like to get questions and tips.
+While digging through some old projects I stumbled upon a wiki page containing a list of database patches for a project.
 
-While digging through some old projects I stumbled upon a wiki page which contained a list of database patches for a project.
+Maintaining such a list of database patches in a wiki is a primitive solution to keep track of changes and on which environments they were executed. It was relatively feature rich though: the order on page matches the order of execution, GitHub wiki provided information on who did what and when and the obvious link to the Jira issue. 
+
+However, the way of working was far from optimal. Often we forgot to just update the wiki. Or we found ourselves debugging a software issue which after a while happened to be caused by a not-yet-applied patch. Not to forget that sometimes the patches were executed against the wrong database. Or a patch of an abandoned feature branch had accidentally been executed. Good luck tracking down the actual state of the database schema. 
 
 ![Primitive method to keep track of database changes](/images/automating-schema-changes/old-method.jpg "Primitive method to keep track of database changes")
 
-Maintaining a list of database patches in a wiki is a primitive solution to keep track of changes and on which environments they were executed. It was relatively feature rich though: the order on page matches the order of execution, GitHub wiki provided information on who did what and when and the obvious link to the Jira issue. 
-
-However, the way of working was far from optimal.
-
-Often we found ourselves debugging an issue caused by a not-yet-applied database patch. Or a patch of an abandoned feature branch had accidentally been executed on the acceptance database. Good luck tracking down the actual state of the database schema. 
-
-So, why don't we treat the database schema as code and include changing the schema in the software delivery pipeline? Keep all database patches in version control and have your company default integration/deployment solution apply those in each environment. There are four major reasons to start working on that today:
+Most of these challenges and issues can be overcome by automating the process of database changes. In this post I give a primer on automation and explain four major reasons why this is important:
 
 0. Insight.
 0. Treating environments equal
 0. Predictable state
 0. Speed of development
 
+## Automation = code + tool + pipeline
 
-## 1. Insight.
+For software it's quite normal to keep this is
 
-Keeping track of who made what change to which database, for what specific reason/business value and when it was applied in which environment specifically gives a tremendous amount of insight. The more details and context are collected, the more valuable. Having people maintaining a wiki is very error prone and lots of details and context is lost. When database patches are applied in a delivery pipeline all this information is highly reliable and without loss of details and context. This serves multiple purposes.
+So, why not treat the database schema as code, use a tool to apply the code to a database and have a delivery pipeline promote this to testing, acceptance and production environments? Indeed, just like we do with regular software these days.
 
-Early this year the [General Data Protection Regulation](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) became enforcable. Companies processing personal data must take _"appropriate technical and organisational measures"_ to protect this data. Maintaining insight in all changes is crucial for this. Being able to prove to regulators that only automated processes are able to change databases is a big plus.
+Required components:
+1. Code:
+    1. Having a definition of the schema.
+    1. Having that definition in a version controlled repository.
+    1. Having processes in place to review changes to the main branch of the repository by knowledgeable peers.
+1. Tool:
+    1. Able to identify the state of the schema in a database.
+    1. Able to transition a database step by step to match the definition in code. Idempotent
+    1. Raise a detailed error in case the transitioning fails.
+1. Pipeline:
+    1. Responsible for managing the process to promote a schema definition to different environments.
+    1. Runs the tool with the right parameters for each schema and environment.
+    1. Only promotes the definition up until production when no error occurred.
+    1. Provides interface for the output of the tool.
+    1. Manages who is allowed to promote.
+
+
+## Insight.
+
+Keeping track of who made what change to which database, for what specific reason/business value and when it was done in which environment specifically gives a tremendous amount of insight. The more details and context are collected, the more valuable. Having people maintaining a wiki is very error prone and lots of details and context is lost. When database patches are applied in a delivery pipeline all this information is highly reliable and without loss of details and context. This serves multiple purposes.
+
+Early this year the [General Data Protection Regulation](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) became enforceable. Companies processing personal data must take _"appropriate technical and organisational measures"_ to protect this data. Maintaining insight in all changes is crucial for this. Being able to prove to regulators that only automated processes are able to change databases is a big plus.
 
 Another purpose is the triaging or research for a post mortem of a production incident. The more detailed and reliable insights around database changes are at hand helps in correlating changes to the operational metrics. Not having to second-guess and crawling wiki pages makes the mean time to recovery faster as well. Not to forget involving the right people at the right point in time.
 
