@@ -10,7 +10,7 @@ However, the way of working was far from optimal. Forgetting to update the wiki.
 
 ![Primitive method to keep track of database changes](/images/automating-schema-changes/old-method.jpg "Primitive method to keep track of database changes")
 
-Most of these challenges and issues can be overcome by automating the process of database changes. Why not treat the database schema as code, use a tool to apply the code to a database and have a delivery pipeline promote this to testing, acceptance and production environments? Just like we do for code:
+Most of these challenges and issues can be overcome by automating the process of database changes. Why not treat the database schema as code, use a tool to apply the code to a database and have a delivery pipeline promote this to testing, acceptance and production environments? Just like we do for our software.
 
 In this post I'll explain four major reasons why this is important:
 
