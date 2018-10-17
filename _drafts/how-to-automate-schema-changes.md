@@ -6,14 +6,15 @@ excerpt: tbd
 
 So, why not treat the database schema as code, use a tool to apply the code to a database and have a delivery pipeline promote this to testing, acceptance and production environments? Indeed, just like we do with regular software these days.
 
-Required components:
+How to automate schema changes? Automation = code + tool + pipeline. 
 1. Code:
     1. Having a definition of the schema.
     1. Having that definition in a version controlled repository.
     1. Having processes in place to review changes to the main branch of the repository by knowledgeable peers.
+    1. Code and a repository fosters democracy in database changes.
 1. Tool:
-    1. Able to identify the state of the schema in a database.
-    1. Able to transition a database step by step to match the definition in code. Idempotent
+    1. Able to find the difference between the defined schema and the actual schema in the database.
+    1. Able to transition the database step by step up until it matches the defined schema. Idempotently.
     1. Raise a detailed error in case the transitioning fails.
 1. Pipeline:
     1. Responsible for managing the process to promote a schema definition to different environments.
