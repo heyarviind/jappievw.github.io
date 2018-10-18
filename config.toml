@@ -1,0 +1,4 @@
+baseURL = "https://findingpaths.io/"
+languageCode = "en-us"
+title = "Finding Paths"
+theme = "uilite-pro"

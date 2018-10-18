@@ -1,0 +1,82 @@
+{{ $config := .Site.Data.config }}
+<section class="skin">
+  <span class="float-right">
+    <a href="{{.Site.BaseURL}}/blog">
+      <img width="30px" src="{{.Site.BaseURL}}/images/right-arrow.svg" alt="">
+    </a>
+  </span>
+  <h2 class="heading">
+    Blog
+  </h2>
+
+  <div class="">
+    {{ range first $config.indexBlogCount (where (where .Site.Pages "Section" "blog") ".Title" "!=" "Blogs" )}}
+    <!-- <div class="col-lg-12 col-md-12 col-12 mb-3">
+        <div class="card p-4">
+          <a class="mb-3" href="{{ .Permalink }}">
+            <div class="featuredImage rounded" style="background-size:cover;background-position:center;background-image: url('{{.Site.BaseURL}}images/blog/{{ .Params.featured_image }}'); height: 200px;background-color:#fbfbfb;">   
+            </div>
+          </a>
+          <small class="text-muted">{{ .Date.Format "Jan 2, 2006"}}</small>
+          <a href="{{ .Permalink }}"><h3 class="h4 font-weight-bold text-dark">{{ .Title }}</h3></a>
+          
+          <div>
+            {{ range .Params.categories }}
+              <span class="badge badge-light">{{ title . }}</span>
+            {{ end }}
+
+            <div class="float-right">
+              
+            </div>
+          </div>
+        </div>
+    </div> -->
+    
+    <article class="mb-3">
+        <div class="row no-gutters bg-white p-4 rounded">
+          <div class="col-12 col-lg-6 col-sm-12 col-md-6">
+              {{ if .Params.featured_image }}
+                <!-- <img class="my-4 rounded" src="{{.Site.BaseURL}}images/blog/{{ .Params.featured_image }}" alt=""> -->
+                <a href="{{.Permalink}}">
+                  <div class="featuredImage rounded" style="background-size:cover;background-position:center;background-image: url('{{.Site.BaseURL}}images/blog/{{ .Params.featured_image }}'); height: 200px;background-color:#fbfbfb;">   
+                  </div>
+                </a>
+                
+                {{ end }}
+          </div>
+          <div class="col-12 col-lg-6 col-sm-12 col-md-6 pl-3">
+            <small class="text-muted">{{.Date.Format "Jan 2, 2006"}}</small>
+          <h2 class="heading mb-0 h3"><a class="text-dark" href="{{.Permalink}}">{{.Title}}</a></h2>
+          <small class="text-muted" style="text-transform:uppercase">{{ if .Params.categories }}
+              <span>        
+                {{ range .Params.categories }}
+                  <span class="badge badge-light">{{ title . }}</span>
+                {{ end }} 
+                
+
+              </span>
+              {{ end }}
+            </small>
+            <!-- <div class="mt-3">
+              <a href="{{.Permalink}}" class="btn btn-light">Read More</a>
+            </div> -->
+            
+          <!-- <p>{{ .Description }} <a class="text-muted d-inline" href="{{.Permalink}}">Read More...</a></p> -->
+          
+          </div>
+        </div>
+      </article>
+    
+    {{ end }}
+    <!-- <div class="col-lg-2 col-12 align-items-end d-flex align-items-center">
+      <a href="{{.Site.BaseURL}}/blog" class="btn btn-dark-faded rounded-circle p-4 text-center">
+        <img width="40px" src="{{.Site.BaseURL}}/images/next.svg" alt="">
+      </a>
+    </div> -->
+  </div>
+
+  <!-- <div class="text-center mt-5">
+    <button class="btn btn-lg btn-dark-faded ">Browse All</button>
+  </div> -->
+
+</section>

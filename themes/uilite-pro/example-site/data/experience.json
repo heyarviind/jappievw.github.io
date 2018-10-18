@@ -1,0 +1,15 @@
+{
+  "title" : "Experience",
+  "experience" : [
+    {
+      "timeperiod" : "2017-2018",
+      "company" : "Company 1",
+      "description" : "Morbi congue lacus ac ex suscipit lacinia. Aenean tristique dolor non ante tincidunt condimentum. "
+    },
+    {
+      "timeperiod" : "2018-present",
+      "company" : "Company 2",
+      "description" : "Morbi congue lacus ac ex suscipit lacinia. Aenean tristique dolor non ante tincidunt condimentum. "
+    }
+  ]
+}

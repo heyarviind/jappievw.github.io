@@ -1,0 +1,15 @@
+{
+  "title" : "Services",
+  "services" : [
+    {
+      "icon" : "code",
+      "title" : "Web Development",
+      "description" : "Duis ornare lacus lectus, ut sollicitudin lacus sodales at. Cras a orci non orci interdum ullamcorper."
+    },
+    {
+      "icon" : "pen-nib",
+      "title" : "Logo Design",
+      "description" : "Duis ornare lacus lectus, ut sollicitudin lacus sodales at. Cras a orci non orci interdum ullamcorper."
+    }
+  ]
+}
