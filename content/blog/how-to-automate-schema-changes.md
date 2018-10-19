@@ -1,6 +1,6 @@
 ---
 title: "How to automate schema changes"
-date: 2018-10-20T15:54:14-04:00
+#date: 2018-10-17T15:54:14-04:00
 description: "To be defined"
 featured_image: ""
 draft: true
@@ -9,6 +9,7 @@ draft: true
 So, why not treat the database schema as code, use a tool to apply the code to a database and have a delivery pipeline promote this to testing, acceptance and production environments? Indeed, just like we do with regular software these days.
 
 How to automate schema changes? Automation = code + tool + pipeline. 
+
 1. Code:
     1. Having a definition of the schema.
     1. Having that definition in a version controlled repository.
