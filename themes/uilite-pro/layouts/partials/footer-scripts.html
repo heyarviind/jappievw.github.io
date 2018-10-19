@@ -1,11 +1,13 @@
-<script src="https://blog.uicard.io/js/highlight.min.js"></script>
+{{ $config := .Site.Data.config }}
+
+<script src="{{ .Site.BaseURL }}js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-114708351-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-114708351-1');
+  gtag('config', '{{ $config.GA }}');
 </script>
 
 </body>

@@ -8,13 +8,13 @@
     <img src="{{.Site.BaseURL}}/images/{{ $sidebar.displayPicture }}" class="rounded-circle mb-3" width="160px">
 
     <h1 class="heading">{{ $sidebar.title }} <span class="highlight">{{ $sidebar.highlightedText }}</span></h1>
-    <p class="text-muted">{{ $sidebar.description }}</p>
+    <p class="description text-muted">{{ $sidebar.description | safeHTML }}</p>
 
     <div class="social my-4">
 
       {{ range $key, $value := $social }}
         <a target="_blank" href="{{ $value }}">
-          <i class="fab fa-{{ $key }}"></i>
+          <i class="{{ $key }}"></i>
         </a>
       {{ end }}
       

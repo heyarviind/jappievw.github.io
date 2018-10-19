@@ -49,7 +49,6 @@ menuBtn.click(function(){
 
 $(document).ready(function(){
   var elements = $(".sidebar > .main-info *");
-  // window.onresize = function(){ location.reload(); }
 
   for(let i = 0; i < elements.length; i++){
     setTimeout(function(){

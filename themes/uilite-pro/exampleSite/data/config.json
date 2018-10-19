@@ -4,5 +4,6 @@
   "email" : "heyarviind@gmail.com",
   "message" : "I'm available for work",
   "indexBlogCount" : 4,
-  "showContactForm" : true
+  "showContactForm" : false,
+  "GA" : "your_GA_code"
 }
