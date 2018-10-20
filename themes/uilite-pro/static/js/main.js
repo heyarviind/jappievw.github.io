@@ -48,16 +48,17 @@ menuBtn.click(function(){
 });
 
 $(document).ready(function(){
-  var elements = $(".sidebar > .main-info *");
-
-  for(let i = 0; i < elements.length; i++){
+  
+  $(".sidebar .main-info img, .sidebar .main-info h1, .sidebar .main-info h1 span, .sidebar .main-info p,.sidebar .main-info .social,.sidebar .main-info a").each(function(i){
+    var $li = $(this);
     setTimeout(function(){
-      $(elements[i].tagName).addClass("bs");
-    }, (400 * i) - 90 * i );
-  }
+      $li.addClass("bs");
+      $li.children().addClass("bs");
+    }, (400 * i) - 190 * i );
+  })
 
   setTimeout(function(){
-    $(".main-content").addClass("active");
-  }, 1900);
+    $(".main-content .emp").addClass("bs");
+  }, 2200);
 
 });

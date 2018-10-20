@@ -1,7 +1,8 @@
+{{ $sidebar := .Site.Data.sidebar }}
 <meta itemprop="name" content="{{ .Title }}">
-<meta itemprop="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}">
+<meta itemprop="description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else if $sidebar.description }}{{ $sidebar.description | plainify }}{{ end }}">
 <meta name="og:title" content="{{ .Title }}">
-<meta name="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}">
+<meta name="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else if $sidebar.description }}{{ $sidebar.description | plainify }}{{ end }}">
 <meta name="og:type" content="article">
 {{ $base :=  .Site.BaseURL  }}
 {{ $section := .Section }}
@@ -25,7 +26,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{{ .Title }}">
-<meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}">
+<meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else if $sidebar.description }}{{ $sidebar.description | plainify }}{{ end }}">
 <!-- Open Graph - Article -->
 <meta name="article:author" content="{{ .Site.Data.config.author }}">
 
@@ -41,7 +42,7 @@
         "@type": "Person",
         "name": "{{ .Site.Data.config.author }}"
     },
-    "description": "{{ .Site.Data.config.description }}",
+    "description": "{{if $sidebar.description }}{{ $sidebar.description | plainify }}{{ end }}",
 }
 </script>
 {{ end }} 
@@ -56,7 +57,7 @@
     "articleSection" : "{{ .Section }}",
     "name" : "{{ .Title }}",
     "headline" : "{{ .Title }}",
-    "description" : "{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}",
+    "description" : "{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else if $sidebar.description }}{{ $sidebar.description | plainify }}{{ end }}",
     "inLanguage" : "{{ .Site.LanguageCode }}",
     "author" : "{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}",
     "creator" : "{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }}",

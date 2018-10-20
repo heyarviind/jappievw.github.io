@@ -48,6 +48,22 @@ a{
   float: none;
   clear: none;
 
+  .emp{
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #fff;
+    z-index: 10;
+    transition: transform 1s ease;
+
+    &.bs{
+      transform: translateX(1200px);
+    }
+  }
+
+  &:before{
+    
+  }
+
   // &:after{
   //   position: absolute;
   //   content: '';

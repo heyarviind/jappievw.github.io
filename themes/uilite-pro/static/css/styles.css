@@ -42,6 +42,25 @@ a:hover {
   clear: none;
 }
 
+.main-content .emp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 10;
+  -webkit-transition: -webkit-transform 1s ease;
+  transition: -webkit-transform 1s ease;
+  transition: transform 1s ease;
+  transition: transform 1s ease, -webkit-transform 1s ease;
+}
+
+.main-content .emp.bs {
+  -webkit-transform: translateX(1200px);
+          transform: translateX(1200px);
+}
+
 article {
   font-size: 18px !important;
   line-height: 1.8rem;
