@@ -1,8 +1,11 @@
 ---
 title: "Four Reasons to Automate Schema Changes"
 date: 2018-10-16T15:54:14-04:00
+author: "Jasper van Wanrooy"
 description: "Historically, most databases received their schema updates manually. For software it is already common practice to automate deployments. 4 reasons the time is now to automate database changes as well."
 featured_image: "four-reasons-to-automate-schema-changes-old-method.jpg"
+images:
+- "/images/blog/four-reasons-to-automate-schema-changes-old-method.jpg"
 draft: false
 ---
 

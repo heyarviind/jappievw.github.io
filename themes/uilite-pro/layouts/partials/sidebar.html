@@ -1,29 +1,21 @@
 {{ $sidebar := .Site.Data.sidebar }}
-{{ $social := .Site.Data.social }}
 {{ $config := .Site.Data.config }}
 
 <section id="sidebar" class="sidebar d-flex align-items-center p-5">
-  <div class="main-info">
+    <div class="main-info">
+        <img src="{{ print "images/" $sidebar.displayPicture | relURL }}" class="rounded-circle mb-3" width="160px">
 
-    <img src="{{.Site.BaseURL}}/images/{{ $sidebar.displayPicture }}" class="rounded-circle mb-3" width="160px">
+        <h1 class="heading">{{ $sidebar.title }} <span class="highlight">{{ $sidebar.highlightedText }}</span></h1>
+        <p class="description text-muted">{{ $sidebar.description | safeHTML }}</p>
 
-    <h1 class="heading">{{ $sidebar.title }} <span class="highlight">{{ $sidebar.highlightedText }}</span></h1>
-    <p class="description text-muted">{{ $sidebar.description | safeHTML }}</p>
+        <div class="social my-4">
+            {{ range .Site.Menus.social }}
+            <a class="text-dark" href="{{ .URL }}">{{ .Pre }}<span>{{ .Name }}</span></a>
+            {{ end }}
+        </div>
 
-    <div class="social my-4">
-
-      {{ range $key, $value := $social }}
-        <a target="_blank" href="{{ $value }}">
-          <i class="{{ $key }}"></i>
-        </a>
-      {{ end }}
-      
+        {{ if $config.showContactForm }}
+        <a href="#contact" class="btn btn-dark btn-lg">Contact</a>
+        {{ end }}
     </div>
-    {{ if $config.showContactForm }}
-      <a href="#contact" class="btn btn-dark btn-lg">Contact</a>
-    {{ end }}
-    <!-- <a target="_blank" href="https://uicard.io/products/hugo-uilite-pro" class="btn btn-warning btn-lg ml-2">Buy Now</a> -->
-
-    
-  </div>
 </section>

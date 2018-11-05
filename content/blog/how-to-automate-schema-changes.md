@@ -1,6 +1,7 @@
 ---
 title: "How to automate schema changes"
 #date: 2018-10-17T15:54:14-04:00
+author: "Jasper van Wanrooy"
 description: "To be defined"
 featured_image: ""
 draft: true

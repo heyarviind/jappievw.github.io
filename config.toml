@@ -2,3 +2,42 @@ baseURL = "https://findingpaths.io/"
 languageCode = "en-us"
 title = "Finding Paths"
 theme = "uilite-pro"
+enableRobotsTXT = true
+
+googleAnalytics = "UA-104466527-1"
+disqusShortname = "finding-paths"
+copyright = "Copyright 2018 Jasper van Wanrooy"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = -10
+
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/blog/"
+    weight = 0
+
+  [[menu.social]]
+    identifier = "email"
+    pre = "<i class='fa fa-envelope'></i>"
+    name = "Email"
+    url = "mailto:jasper@vanwanrooy.net"
+    weight = -50
+
+  [[menu.social]]
+    identifier = "twitter"
+    pre = "<i class='fab fa-twitter'></i>"
+    name = "Twitter"
+    url = "https://twitter.com/jappievw"
+    weight = -40
+
+  [[menu.social]]
+    identifier = "github"
+    pre = "<i class='fab fa-github-alt'></i>"
+    name = "Github"
+    url = "https://github.com/jappievw"
+    weight = -30
