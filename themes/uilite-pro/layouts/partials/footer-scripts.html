@@ -1,14 +1,10 @@
-<script src="{{ "js/highlight.min.js" | relURL }}"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
 {{ template "_internal/google_analytics_async.html" . }}
-
-
 </body>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="{{ "js/main.js" | relURL }}"></script>
-
+{{- $jquery := resources.Get "jquery-3.3.1.min.js" -}}
+{{- $bootstrap := resources.Get "bootstrap-4.1.3-dist/js/bootstrap.bundle.min.js" -}}
+{{- $highlight := resources.Get "highlight.pack.js" -}}
+{{- $main_js := resources.Get "main.js" | minify -}}
+{{- $scripts := (slice $jquery $bootstrap $highlight $main_js) | resources.Concat "js/bundle.js" | fingerprint }}
+<script src="{{ $scripts.Permalink }}" integrity="{{ $scripts.Data.Integrity }}" crossorigin="anonymous"></script>
 </html>
